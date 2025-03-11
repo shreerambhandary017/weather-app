@@ -3611,3 +3611,148 @@ input:checked + .slider:before {
     background-position: 200% 0;
   }
 }
+
+/* Responsive Footer Optimizations */
+@media screen and (max-width: 1200px) {
+  .unique-footer {
+    padding: 1.8rem 0;
+  }
+  
+  .footer-content {
+    width: 95%;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .profile-image {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .profile-image span {
+    font-size: 24px;
+  }
+  
+  .creator-name {
+    font-size: 1.6rem;
+  }
+  
+  .social-links {
+    gap: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .unique-footer {
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+  }
+  
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .social-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+  }
+  
+  .creator-name {
+    font-size: 1.4rem;
+  }
+  
+  /* Adjust animations for better performance on mobile */
+  .footer-particles::before,
+  .footer-particles::after,
+  .unique-footer::before,
+  .unique-footer::after,
+  .footer-background::before,
+  .footer-background::after {
+    display: none;
+  }
+  
+  .footer-background {
+    animation-duration: 30s;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .unique-footer {
+    min-height: 180px;
+    padding: 1.2rem 0;
+  }
+  
+  .profile-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .profile-image span {
+    font-size: 20px;
+  }
+  
+  .creator-name {
+    font-size: 1.2rem;
+  }
+  
+  .social-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .social-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .unique-footer {
+    min-height: 160px;
+  }
+  
+  .profile-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .profile-image span {
+    font-size: 18px;
+  }
+  
+  .creator-name {
+    font-size: 1.1rem;
+  }
+  
+  .social-link {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Optimize animations for devices that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .profile-image,
+  .creator-name,
+  .social-link,
+  .footer-background,
+  .footer-particles::before,
+  .footer-particles::after,
+  .unique-footer::before,
+  .unique-footer::after,
+  .footer-content::before,
+  .footer-content::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

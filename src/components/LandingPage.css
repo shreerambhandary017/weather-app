@@ -30,6 +30,7 @@
   border-radius: 50%;
   opacity: 0;
   animation: twinkle 3s infinite ease-in-out;
+  will-change: opacity, transform;
 }
 
 @keyframes twinkle {
@@ -49,6 +50,11 @@
     radial-gradient(circle at 40% 70%, rgba(255, 87, 34, 0.08), transparent 30%);
   z-index: 2;
   animation: backgroundShift 15s ease-in-out infinite alternate;
+  will-change: background-position;
+}
+
+.animated-gradient.reduced-motion {
+  animation: none;
 }
 
 @keyframes backgroundShift {
@@ -66,11 +72,17 @@
   pointer-events: none;
 }
 
+.floating-elements.reduced {
+  /* Reduce the number of elements for better performance */
+  opacity: 0.7;
+}
+
 .floating-cloud {
   position: absolute;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   filter: blur(20px);
+  will-change: transform;
 }
 
 .cloud-1 {
@@ -108,6 +120,7 @@
   height: 6px;
   border-radius: 50%;
   filter: blur(1px);
+  will-change: transform;
 }
 
 .particle-1 {
@@ -169,6 +182,11 @@
   margin-bottom: 1rem;
 }
 
+.logo-icon.reduced-motion .weather-icon-sun,
+.logo-icon.reduced-motion .weather-icon-cloud {
+  animation: none;
+}
+
 .weather-icon-sun {
   position: absolute;
   width: 50px;
@@ -179,6 +197,7 @@
   left: 15px;
   box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
   animation: pulse 3s infinite ease-in-out;
+  will-change: transform, opacity;
 }
 
 .weather-icon-cloud {
@@ -191,6 +210,7 @@
   right: 5px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   animation: float 5s infinite ease-in-out;
+  will-change: transform;
 }
 
 @keyframes pulse {
@@ -213,6 +233,7 @@
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   animation: shimmerText 3s infinite linear;
+  will-change: background-position;
 }
 
 @keyframes shimmerText {
@@ -325,6 +346,7 @@
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   transform: translateX(-100%);
   transition: transform 0.6s ease;
+  will-change: transform;
 }
 
 .get-started-btn:hover::before {
@@ -333,6 +355,7 @@
 
 .get-started-btn svg {
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .get-started-btn:hover svg {
@@ -346,6 +369,7 @@
   align-items: center;
   opacity: 0.7;
   animation: fadeInUp 2s infinite;
+  will-change: opacity, transform;
 }
 
 .scroll-indicator p {
@@ -355,6 +379,7 @@
 
 .scroll-arrow {
   animation: bounce 2s infinite;
+  will-change: transform;
 }
 
 @keyframes fadeInUp {
@@ -370,6 +395,16 @@
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+  .landing-content {
+    gap: 2rem;
+  }
+  
+  .landing-title {
+    font-size: 3.2rem;
+  }
+}
+
 @media (max-width: 992px) {
   .landing-title {
     font-size: 3rem;
@@ -378,9 +413,28 @@
   .feature-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .cloud-1 {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .cloud-2 {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 768px) {
+  .landing-page {
+    padding: 1rem 0;
+  }
+  
+  .landing-content {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
   .landing-title {
     font-size: 2.5rem;
   }
@@ -391,6 +445,7 @@
   
   .feature-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .logo-icon {
@@ -407,11 +462,25 @@
     width: 50px;
     height: 25px;
   }
+  
+  /* Optimize animations for mobile */
+  .animated-gradient {
+    animation-duration: 30s;
+  }
+  
+  .cloud-1, .cloud-2 {
+    animation-duration: 40s;
+  }
+  
+  .particle-1, .particle-2 {
+    animation-duration: 20s;
+  }
 }
 
 @media (max-width: 480px) {
   .landing-content {
-    padding: 1.5rem;
+    padding: 1.2rem;
+    width: 95%;
   }
   
   .landing-title {
@@ -429,5 +498,72 @@
   
   .feature-item {
     padding: 1.5rem;
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .feature-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .feature-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .landing-content {
+    padding: 1rem;
+  }
+  
+  .landing-title {
+    font-size: 1.8rem;
+  }
+  
+  .landing-tagline {
+    font-size: 0.9rem;
+  }
+  
+  .logo-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .get-started-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Optimize for reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  .animated-gradient,
+  .floating-cloud,
+  .floating-particle,
+  .weather-icon-sun,
+  .weather-icon-cloud,
+  .landing-title,
+  .scroll-indicator,
+  .scroll-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .get-started-btn::before {
+    display: none;
+  }
+  
+  .feature-item:hover .feature-icon {
+    transform: none;
   }
 } 
