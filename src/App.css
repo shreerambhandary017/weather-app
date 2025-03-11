@@ -2853,3 +2853,761 @@ input:checked + .slider:before {
   color: var(--text-secondary);
   margin-bottom: 0.75rem;
 }
+
+/* Unique Footer Styling */
+.unique-footer {
+  position: relative;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(121, 68, 154, 0.13), transparent 20%),
+    radial-gradient(circle at 75% 50%, rgba(33, 150, 243, 0.1), transparent 25%),
+    radial-gradient(circle at 40% 70%, rgba(255, 87, 34, 0.08), transparent 30%);
+  z-index: -1;
+  animation: backgroundShift 15s ease-in-out infinite alternate;
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(106, 17, 203, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.profile-image span {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+.profile-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  filter: blur(5px);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.creator-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  margin: 0;
+  background: linear-gradient(to right, #fff, #a5b4fc, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 3s infinite linear;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  perspective: 1000px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) rotateX(10deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.social-link:hover::before {
+  transform: translateX(0);
+}
+
+.social-link:active {
+  transform: translateY(0) rotateX(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.social-text {
+  position: relative;
+  z-index: 1;
+  transition: letter-spacing 0.3s ease;
+}
+
+.social-link:hover .social-text {
+  letter-spacing: 0.5px;
+}
+
+/* Add unique hover effects for each social link */
+.linkedin {
+  background: linear-gradient(45deg, #0077b5, #00a0dc);
+}
+
+.linkedin:hover {
+  background: linear-gradient(45deg, #00a0dc, #0077b5);
+}
+
+.github {
+  background: linear-gradient(45deg, #333, #6e5494);
+}
+
+.github:hover {
+  background: linear-gradient(45deg, #6e5494, #333);
+}
+
+.instagram {
+  background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+.instagram:hover {
+  background: linear-gradient(45deg, #fcb045, #fd1d1d, #833ab4);
+}
+
+/* Add ripple effect on click */
+.social-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.social-link:active::after {
+  transform: scale(2);
+  opacity: 0;
+  transition: 0s;
+}
+
+/* Add floating labels that appear on hover */
+.social-link .hover-label {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.social-link .hover-label::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.social-link:hover .hover-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.footer-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.footer-particles::before,
+.footer-particles::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+  animation: floatParticle 10s linear infinite;
+  opacity: 0.6;
+}
+
+.footer-particles::before {
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.footer-particles::after {
+  top: 70%;
+  left: 70%;
+  animation-delay: 5s;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(100px, -100px);
+    opacity: 0;
+  }
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(106, 17, 203, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes shimmerText {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Add more particles with pseudo-elements for each social link */
+.social-link::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  z-index: 0;
+}
+
+.linkedin::after {
+  animation: particleEffect 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.github::after {
+  animation: particleEffect 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.instagram::after {
+  animation: particleEffect 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes particleEffect {
+  0% {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+/* Responsive styles for the footer */
+@media screen and (max-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-link {
+    width: 80%;
+    justify-content: center;
+  }
+  
+  .creator-name {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .unique-footer {
+    padding: 1.5rem 0;
+  }
+  
+  .profile-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .profile-image span {
+    font-size: 22px;
+  }
+  
+  .creator-name {
+    font-size: 1.2rem;
+  }
+  
+  .social-link {
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Add more floating particles to the footer */
+.footer-particles::before,
+.footer-particles::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+  animation: floatParticle 10s linear infinite;
+  opacity: 0.6;
+}
+
+.footer-particles::before {
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.footer-particles::after {
+  top: 70%;
+  left: 70%;
+  animation-delay: 5s;
+}
+
+/* Add multiple particles using generated content */
+.unique-footer::before,
+.unique-footer::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+.unique-footer::before {
+  top: 25%;
+  left: 15%;
+  animation: floatParticle 15s linear infinite;
+  animation-delay: 2s;
+}
+
+.unique-footer::after {
+  top: 60%;
+  left: 85%;
+  animation: floatParticle 12s linear infinite;
+  animation-delay: 7s;
+}
+
+/* Create shooting stars effect */
+.footer-background::before,
+.footer-background::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  animation: shootingStar 8s linear infinite;
+  opacity: 0;
+}
+
+.footer-background::before {
+  width: 150px;
+  top: 20%;
+  left: -10%;
+  transform: rotate(15deg);
+  animation-delay: 3s;
+}
+
+.footer-background::after {
+  width: 100px;
+  top: 60%;
+  left: 30%;
+  transform: rotate(-20deg);
+  animation-delay: 7s;
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(0) rotate(15deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(500px) rotate(15deg);
+    opacity: 0;
+  }
+}
+
+/* Add floating bubbles */
+.footer-content::before,
+.footer-content::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 60%, transparent);
+  animation: floatBubble 20s ease-in-out infinite alternate;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.footer-content::before {
+  width: 100px;
+  height: 100px;
+  top: -30px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.footer-content::after {
+  width: 70px;
+  height: 70px;
+  bottom: -20px;
+  right: 15%;
+  animation-delay: 10s;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate(20px, -20px) scale(1.1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(0, -40px) scale(1);
+    opacity: 0.1;
+  }
+}
+
+/* Add interactive hover effect to the entire footer */
+.unique-footer:hover .footer-background {
+  animation-duration: 10s;
+}
+
+.unique-footer:hover .profile-image {
+  animation-duration: 1.5s;
+}
+
+.unique-footer:hover .creator-name {
+  animation-duration: 2s;
+}
+
+/* Add a subtle wave effect to the footer */
+.unique-footer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23ffffff'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23ffffff'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 1;
+  animation: waveAnimation 10s linear infinite alternate;
+}
+
+@keyframes waveAnimation {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+/* Enhanced 3D Profile Image Animation */
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(106, 17, 203, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.profile-image:hover {
+  transform: scale(1.1) rotate(5deg) translateZ(10px);
+  box-shadow: 0 0 30px rgba(106, 17, 203, 0.8), 0 0 60px rgba(37, 117, 252, 0.4);
+  animation: profile3DRotation 3s infinite ease-in-out;
+}
+
+@keyframes profile3DRotation {
+  0% {
+    transform: scale(1.1) rotateY(0deg) rotateX(0deg);
+  }
+  25% {
+    transform: scale(1.15) rotateY(15deg) rotateX(5deg);
+  }
+  50% {
+    transform: scale(1.1) rotateY(0deg) rotateX(0deg);
+  }
+  75% {
+    transform: scale(1.15) rotateY(-15deg) rotateX(-5deg);
+  }
+  100% {
+    transform: scale(1.1) rotateY(0deg) rotateX(0deg);
+  }
+}
+
+/* Add a cosmic background effect to the footer */
+.unique-footer {
+  position: relative;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 40px 60px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 20px 50px, rgba(255,255,255,0.4), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 30px 100px, rgba(255,255,255,0.6), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 60px, rgba(255,255,255,0.4), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 110px 90px, rgba(255,255,255,0.5), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 20px, rgba(255,255,255,0.6), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.1;
+  z-index: 1;
+  animation: twinkling 8s linear infinite;
+}
+
+@keyframes twinkling {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* Add a special effect to the creator name */
+.creator-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  margin: 0;
+  background: linear-gradient(to right, #fff, #a5b4fc, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 3s infinite linear;
+  position: relative;
+}
+
+.creator-name::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(45deg, rgba(106, 17, 203, 0), rgba(37, 117, 252, 0.4), rgba(106, 17, 203, 0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerTextShadow 5s infinite linear;
+  filter: blur(8px);
+  opacity: 0.8;
+}
+
+@keyframes shimmerTextShadow {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
